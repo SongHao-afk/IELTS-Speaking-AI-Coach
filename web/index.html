@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f8faf8" />
+  <meta name="description" content="A private, focused IELTS Speaking practice studio with recording, coaching, and progress insights." />
+  <title>Speakly — IELTS Speaking Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <a class="brand" href="/" aria-label="Speakly home">
+        <span class="brand-icon"><svg viewBox="0 0 36 36" fill="none" aria-hidden="true"><path d="M7 19.4h4m3.5-7v14m6-20v23m6-17v11m4-7h-1" stroke="currentColor" stroke-linecap="round" stroke-width="3.4"/></svg></span>
+        <span><strong>speakly<span class="brand-dot">.</span></strong><small>IELTS SPEAKING STUDIO</small></span>
+      </a>
+      <div class="nav-group-title">WORKSPACE</div>
+      <nav class="side-nav" aria-label="Main navigation">
+        <button type="button" class="nav-item active" data-page="practice" aria-current="page">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m13 2-8 11h6l-1 9 9-12h-6l1-8Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          Practice studio <span class="nav-caret">›</span>
+        </button>
+        <button type="button" class="nav-item" data-page="history">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.9-6.6M3 4v5h5m4-2v5l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Practice history <span class="nav-caret">›</span>
+        </button>
+        <button type="button" class="nav-item" data-page="insights">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="11" width="4" height="9" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="10" y="6" width="4" height="14" rx="1" stroke="currentColor" stroke-width="1.8"/><rect x="17" y="3" width="4" height="17" rx="1" stroke="currentColor" stroke-width="1.8"/></svg>
+          My progress <span class="nav-caret">›</span>
+        </button>
+      </nav>
+      <div class="side-spacer"></div>
+      <div class="sidebar-note">
+        <div class="sidebar-note-art" aria-hidden="true"><span>✦</span><span>✧</span><span>✦</span></div>
+        <strong>Small steps. Stronger voice.</strong>
+        <p>Build speaking confidence one thoughtful answer at a time.</p>
+        <button id="sidebarStart" type="button">Start practicing <span aria-hidden="true">↗</span></button>
+      </div>
+      <div class="sidebar-footer"><span class="privacy-dot"></span> Local history · Optional Groq AI <span class="version">v2.3</span></div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb"><span>MY WORKSPACE</span><span class="breadcrumb-sep">/</span><span id="breadcrumbCurrent">Practice studio</span></div>
+        <div class="topbar-right"><span class="status-pill" id="aiStatus"><span class="status-indicator"></span> Loading services…</span><span class="user-avatar" title="Personal workspace">S</span></div>
+      </header>
+
+      <section id="practicePage" class="page active" aria-labelledby="pageTitle">
+        <div class="welcome-line"><span class="tiny-spark">✳</span> YOUR DAILY SPEAKING SPACE</div>
+        <h1 id="pageTitle">Make your voice <em>count.</em></h1>
+        <p class="page-lead">A little practice today, a more confident answer tomorrow.</p>
+
+        <div class="hero-grid">
+          <div class="hero-banner">
+            <div class="hero-copy"><span class="hero-eyebrow">PRACTICE MAKES PROGRESS <span>✦</span></span><h2>Speak naturally.<br />Think clearly.<br /><span>Grow daily.</span></h2><p>Your personal speaking space, at your own pace.</p><button id="heroStart" type="button" class="hero-cta">Jump into practice <span aria-hidden="true">↗</span></button></div>
+            <div class="hero-visual" aria-hidden="true"><div class="hero-ring ring-one"></div><div class="hero-ring ring-two"></div><div class="hero-orb"><span class="orb-wave">▂▆█▆▂</span></div><span class="star-a">✦</span><span class="star-b">✳</span></div>
+          </div>
+          <div class="summary-card"><div class="summary-top"><span class="eyebrow">YOUR MOMENTUM</span><span class="summary-icon">↗</span></div><div class="summary-stat"><strong id="heroAttempts">0</strong><span>answers practiced</span></div><div class="summary-rule"></div><div class="summary-bottom"><div><strong id="heroMinutes">0 min</strong><small>speaking time</small></div><div><strong id="heroAverage">—</strong><small>3-criteria estimate*</small></div></div><span class="tiny-disclaimer">*Language-only estimate; pronunciation not assessed</span></div>
+        </div>
+
+        <div class="section-heading" id="studioAnchor"><div><div class="eyebrow eyebrow-green">THE PRACTICE STUDIO</div><h2>Choose your format</h2></div><p>Train a specific skill or simulate the full experience.</p></div>
+        <div class="mode-grid" id="modeGrid" role="group" aria-label="Select practice mode">
+          <button type="button" class="mode-card selected" data-mode="1" aria-pressed="true"><span class="mode-icon mint">01</span><span class="mode-body"><strong>Part 1</strong><small>Everyday conversation</small></span><span class="mode-arrow">↗</span></button>
+          <button type="button" class="mode-card" data-mode="2" aria-pressed="false"><span class="mode-icon peach">02</span><span class="mode-body"><strong>Part 2</strong><small>Long-turn speaking</small></span><span class="mode-arrow">↗</span></button>
+          <button type="button" class="mode-card" data-mode="3" aria-pressed="false"><span class="mode-icon blue">03</span><span class="mode-body"><strong>Part 3</strong><small>Deeper discussion</small></span><span class="mode-arrow">↗</span></button>
+          <button type="button" class="mode-card" data-mode="mock" aria-pressed="false"><span class="mode-icon violet">★</span><span class="mode-body"><strong>Mock test</strong><small>Parts 1 → 2 → 3</small></span><span class="mode-arrow">↗</span></button>
+        </div>
+
+        <div class="practice-topline"><div class="question-label"><span class="live-dot"></span><strong>Speaking session</strong><span id="sessionCounter">Part 1 · Question 1</span></div><div class="question-controls"><label class="topic-label" for="topicSelect">TOPIC</label><select id="topicSelect" aria-label="Choose topic"><option value="">All topics</option></select><button id="shuffleQuestion" type="button" class="icon-btn" aria-label="Shuffle question" title="Shuffle question">↻</button></div></div>
+
+        <div class="studio-grid">
+          <section class="question-card" aria-labelledby="questionTitle"><div class="question-top"><span id="questionPart" class="question-tag">PART 01</span><span class="question-count" id="questionCount">PRACTICE QUESTION</span></div><div class="question-content"><span class="eyebrow">YOUR QUESTION</span><h3 id="questionTitle">Loading your next question…</h3><ul id="questionCues" class="cues" hidden></ul></div><div class="question-bottom"><div class="question-tip"><span>✺</span><span id="questionTip">Aim for a natural, complete answer with a reason and example.</span></div><button id="speakQuestion" type="button" class="secondary-icon-btn" title="Listen to the question"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Zm12-2c2 2 2 8 0 10m2-13c4 3 4 13 0 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg> Hear question</button></div></section>
+          <section class="recorder-card" aria-labelledby="recorderTitle"><div class="recorder-header"><span class="eyebrow">YOUR RESPONSE</span><span id="recorderState" class="recorder-badge">READY</span></div><h3 id="recorderTitle">You're up!</h3><p id="recorderDescription">Take a moment, then speak naturally.</p><div class="timer-ring"><div class="timer-body"><span id="timerStatus">RESPONSE TIME</span><strong id="clock" aria-live="off">00:45</strong><small id="timerSub">Press start when ready</small></div></div><canvas id="waveform" class="waveform" width="300" height="40" aria-hidden="true"></canvas>
+            <div class="mic-controls">
+              <label class="mic-select-label" for="microphoneSelect">MICROPHONE</label>
+              <div class="mic-select-row">
+                <select id="microphoneSelect" aria-label="Microphone device"><option value="">System default microphone</option></select>
+                <button id="testMicButton" type="button" class="mic-test-button">Test mic</button>
+              </div>
+            </div>
+            <div class="mic-meter" id="micMeter" aria-label="Microphone input level">
+              <div class="mic-meter-top"><span id="micStatus" role="status">Choose your microphone, then test it.</span><span id="micLevelText" aria-hidden="true">0%</span></div>
+              <div class="mic-meter-track"><div id="micLevelFill" class="mic-meter-fill"></div></div>
+            </div>
+            <div class="recorder-actions"><button id="recordButton" class="primary-button" type="button"><span class="mic-dot"></span><span id="recordButtonText">Start speaking</span></button><button id="typeButton" class="text-button" type="button">Or type an answer</button></div><div id="recordHint" class="record-hint">Microphone access is requested only when you record.</div></section>
+        </div>
+        <div class="notes-card" id="notesCard" hidden><label for="prepNotes">MY PART 2 NOTES</label><textarea id="prepNotes" rows="3" placeholder="Jot down a few ideas during your one-minute preparation…"></textarea></div>
+
+        <section class="review-panel" id="reviewPanel" hidden aria-labelledby="reviewHeading"><div class="panel-heading"><div><span class="eyebrow eyebrow-green">ALMOST THERE</span><h2 id="reviewHeading">Review your answer</h2><p>Edit the transcript to correct speech recognition mistakes, then request feedback.</p></div><span class="step-chip">STEP 02 / 02</span></div><audio id="playback" controls hidden></audio><p id="audioWarning" class="audio-warning" role="alert" hidden></p><label class="field-label" for="transcriptInput">Your transcript <span>(editable)</span></label><textarea id="transcriptInput" rows="5" maxlength="10000" placeholder="Paste what you said, or leave blank to transcribe your recording using the available service."></textarea><div class="review-hint" id="transcriptHint">Your recording is processed in memory and is not stored in your history.</div><div class="consent-row" id="cloudAudioNotice"><div><strong>Automatic speaking analysis — no checkbox needed</strong><small>When you click <b>Analyze my answer</b>, if the transcript is blank, this recording is sent to Groq Whisper for speech-to-text; the resulting text is sent to Groq AI for language feedback. Your WAV is not saved in practice history. Whisper does not score pronunciation.</small></div></div><div class="review-actions"><button id="evaluateButton" class="primary-button" type="button">Analyze my answer <span>↗</span></button><button id="discardButton" class="outline-button" type="button">Try recording again</button></div></section>
+
+        <section id="resultPanel" class="results-panel" hidden aria-labelledby="resultHeading"><div class="panel-heading"><div><span class="eyebrow eyebrow-green">YOUR FEEDBACK</span><h2 id="resultHeading">Every answer is progress.</h2><p id="resultSubtitle">Here's what your practice reveals.</p></div><div class="score-chip"><small>AI LANGUAGE ESTIMATE*</small><strong id="overallBand">—</strong></div></div><div class="score-grid" id="criteriaGrid"></div><div class="metric-strip" id="metricStrip"></div><div class="feedback-columns"><div class="feedback-box"><h3>✦ What's working</h3><ul id="strengthsList"></ul></div><div class="feedback-box"><h3>↗ Your next moves</h3><ul id="prioritiesList"></ul></div></div><div class="sample-box" id="sampleBox" hidden><div class="sample-header">A clearer version of your idea <span>NOT FOR MEMORISING</span></div><p id="improvedAnswer"></p></div><div class="drill-box" id="drillBox" hidden><span class="drill-symbol">◎</span><div><strong>Try this next</strong><p id="practiceDrill"></p></div></div><p class="results-disclaimer" id="resultDisclaimer">AI estimates are not official IELTS results.</p><div class="result-actions"><button id="nextQuestion" class="primary-button" type="button">Next question <span>→</span></button><button id="retryFeedback" class="outline-button" type="button" hidden>Retry AI feedback</button><button id="reviewAgain" class="outline-button" type="button">Revisit my answer</button></div></section>
+        <div class="practice-footer">Language-only coaching. Pronunciation is not scored; a full official IELTS Speaking score requires all four criteria.</div>
+      </section>
+
+      <section id="historyPage" class="page" hidden aria-labelledby="historyTitle"><div class="welcome-line"><span class="tiny-spark">✳</span> YOUR LEARNING JOURNEY</div><h1 id="historyTitle">Your practice <em>library.</em></h1><p class="page-lead">Every recorded answer is another step forward.</p><div class="panel-heading history-header"><div><h2>Recent responses</h2><p>Audio is never saved; your transcript and feedback stay in local SQLite.</p></div><div class="history-actions"><button id="exportHistory" class="outline-button" type="button">Export JSON</button><button id="clearHistory" class="danger-button" type="button">Clear history</button></div></div><div id="historyList" class="history-list"></div></section>
+
+      <section id="insightsPage" class="page" hidden aria-labelledby="insightsTitle"><div class="welcome-line"><span class="tiny-spark">✳</span> THE BIGGER PICTURE</div><h1 id="insightsTitle">Progress over <em>perfection.</em></h1><p class="page-lead">See the consistency you're building, one day at a time.</p><div class="insights-stats"><div class="insight-stat"><small>ANSWERS PRACTICED</small><strong id="insightAttempts">0</strong><span>total attempts</span></div><div class="insight-stat"><small>TIME SPENT SPEAKING</small><strong id="insightMinutes">0<span> min</span></strong><span>recorded practice</span></div><div class="insight-stat"><small>AI LANGUAGE ESTIMATE*</small><strong id="insightBand">—</strong><span>average from 3 language criteria</span></div></div><div class="insights-charts"><div class="chart-card"><div class="chart-title"><strong>Last 7 days</strong><span>CONSISTENCY</span></div><div id="activityBars" class="activity-bars"></div></div><div class="chart-card"><div class="chart-title"><strong>Your speaking parts</strong><span>FOCUS AREA</span></div><div id="partsBars" class="parts-bars"></div></div></div><div class="trend-card"><div class="chart-title"><strong>AI estimate history</strong><span>LANGUAGE-ONLY ESTIMATES</span></div><div id="bandTrend" class="trend-list"></div></div><p class="results-disclaimer">These estimates are for practice, not official IELTS bands. Pronunciation is not assessed by Groq Whisper.</p></section>
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </main>
+  </div>
+</body>
+</html>

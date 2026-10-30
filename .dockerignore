@@ -1,0 +1,19 @@
+# Never send API keys, local databases or development files to the Docker build context.
+.env
+.env.*
+!.env.example
+.venv/
+data/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.db
+*.db-*
+.pytest_cache/
+.git/
+.gitignore
+preview-*.png
+tests/
+*.zip
+*.log
+.DS_Store
